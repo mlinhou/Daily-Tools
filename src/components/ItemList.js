@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Item from './Item'
 import Modal from 'react-modal';
 
@@ -28,23 +28,38 @@ function ItemList() {
     closeModal();
   };
 
+  const handleDelete = (text) => {
+    setItemList(itemList.filter(item => item !== text));
+  }
+
   const showList = () => {
     console.log(itemList);
   }
+
+  // useEffect(() => {
+  //   const savedData = JSON.parse(localStorage.getItem('myData'));
+  //   if(savedData){
+  //     setItemList(savedData);
+  //   }
+  // }, []);
+
+  // // Save data to localStorage whenever it changes
+  // useEffect(() => {
+  //   localStorage.setItem('myData', JSON.stringify(itemList))
+  // }, [itemList]); // data is the dependency
+
+  
   return (
     <div>
-      <ul>
-        {itemList.map((item) => (
-          <Item note={item}/>
-        ))
-        }
-      </ul>
+      {itemList.map((item) => (
+        <Item note={item} handleDelete={handleDelete}/>
+      ))
+      }
       <button onClick={openModal}>Open Modal</button>
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
       >
-        <h2>NOTE TITLE</h2>
         <input
             type="text"
             value={textInput}
