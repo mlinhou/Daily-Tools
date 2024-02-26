@@ -28,8 +28,9 @@ function ItemList() {
     closeModal();
   };
 
-  const handleDelete = (text) => {
-    setItemList(itemList.filter(item => item !== text));
+  const handleDelete = (index) => {
+    const updatedList = itemList.filter((_, i) => i !== index);
+    setItemList(updatedList)
   }
 
   const showList = () => {
@@ -51,8 +52,8 @@ function ItemList() {
   
   return (
     <div>
-      {itemList.map((item) => (
-        <Item note={item} handleDelete={handleDelete}/>
+      {itemList.map((item, index) => (
+        <Item note={item} index={index} handleDelete={handleDelete}/>
       ))
       }
       <button onClick={openModal}>Open Modal</button>
