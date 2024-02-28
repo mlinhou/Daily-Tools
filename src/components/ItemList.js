@@ -7,13 +7,19 @@ function ItemList() {
   const [itemList, setItemList] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [textInput, setTextInput] = useState('');
+  const [todoMap, setToDoMap] = useState([]);
 
   const openModal = () => {
+    
     setIsOpen(true);
+    
   };
 
   const closeModal = () => {
+    
     setIsOpen(false);
+    setTextInput('');
+    
   };
 
   const handleChange = (e) => {
@@ -21,21 +27,57 @@ function ItemList() {
   };
 
   const handleSubmit = (e) => {
+    closeModal();
+    
     e.preventDefault();
     itemList.push(textInput);
     setItemList(itemList);
     setTextInput('');
-    closeModal();
+    const componentList = itemList.map((item, index) => (
+      <Item note={item} index={index} handleDelete={handleDelete} handleEdit={handleEdit}/>
+    ))
+    let updatedMap = new Map();
+    for(let i=0; i<componentList.length; i++){
+      updatedMap.set(i, componentList[i]);
+    }
+
+    setToDoMap(updatedMap);
+    
   };
 
   const handleDelete = (index) => {
+
     const updatedList = itemList.filter((_, i) => i !== index);
     setItemList(updatedList)
+    //need to somehow add 1 to the key if you delete a note so it keeps track of position
+    // for(let i=0; i< todoMap.length; i++){
+    //   if(index < todoMap[i].key){
+    //     todoMap[i].key
+    //   }
+    // }
+  }
+
+  const handleEdit = (index, editedText) => {
+    itemList.splice(index, 1, editedText);
+    console.log("edited list is " + itemList)
+    setItemList(itemList);
   }
 
   const showList = () => {
     console.log(itemList);
   }
+
+  const checkConsole = () => {
+    // console.log("isOpen is " + isOpen);
+    console.log(todoMap)
+  }
+  useEffect(() => {
+    const updatedMap = itemList.map((item, index) => (
+      <Item note={item} index={index} handleDelete={handleDelete} handleEdit={handleEdit}/>
+    ))
+    setToDoMap(updatedMap);
+  }, [itemList])
+  
 
   // useEffect(() => {
   //   const savedData = JSON.parse(localStorage.getItem('myData'));
@@ -52,10 +94,9 @@ function ItemList() {
   
   return (
     <div>
-      {itemList.map((item, index) => (
-        <Item note={item} index={index} handleDelete={handleDelete}/>
-      ))
-      }
+      {Array.from(todoMap.values()).map((component, index) => (
+        <div key={index}>{component}</div>
+      ))}
       <button onClick={openModal}>Open Modal</button>
       <Modal
         isOpen={isOpen}
@@ -68,9 +109,10 @@ function ItemList() {
             placeholder="Enter text..."
           />
         <button onClick={handleSubmit}>Save Note</button> {/* Close button inside modal */}
-        
+        <button onClick={checkConsole}>Console for isOpen</button>
       </Modal>
       <button onClick={showList}>Show list</button>
+      <button onClick={checkConsole}>Console</button>
     </div>
 
   )
