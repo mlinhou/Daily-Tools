@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Item from './Item'
 import Modal from 'react-modal';
-
+import { v4 as uuidv4 } from 'uuid';
 function ItemList() {
 
   const [itemList, setItemList] = useState([]);
@@ -22,15 +22,19 @@ function ItemList() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    itemList.push(textInput);
-    setItemList(itemList);
+    setItemList([...itemList, {id: uuidv4(), task: textInput, isEditing: false}]);
     setTextInput('');
     closeModal();
   };
 
-  const handleDelete = (index) => {
-    const updatedList = itemList.filter((_, i) => i !== index);
-    setItemList(updatedList)
+  const handleEdit = (note, editedText) => {
+    const index = itemList.indexOf(note);
+    itemList[index].task = editedText;
+    setItemList(itemList);
+  }
+
+  const handleDelete = (id) => {
+    setItemList(itemList.filter(todo => todo.id !== id))
   }
 
   const showList = () => {
@@ -52,8 +56,8 @@ function ItemList() {
   
   return (
     <div>
-      {itemList.map((item, index) => (
-        <Item note={item} index={index} handleDelete={handleDelete}/>
+      {itemList.map((item) => (
+        <Item note={item} handleDelete={handleDelete} handleEdit={handleEdit}/>
       ))
       }
       <button onClick={openModal}>Open Modal</button>
