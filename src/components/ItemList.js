@@ -3,6 +3,9 @@ import Item from './Item'
 import Modal from 'react-modal';
 import './ItemList.css';
 import { v4 as uuidv4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 function ItemList() {
 
   const [itemList, setItemList] = useState([]);
@@ -61,7 +64,10 @@ function ItemList() {
         <Item note={item} handleDelete={handleDelete} handleEdit={handleEdit}/>
       ))
       }
-      <button onClick={openModal}>Open Modal</button>
+      <div className='create-modal'>
+        <button className='create-btn' onClick={openModal}><FontAwesomeIcon icon={faPlus} /></button>
+      </div>
+      
       <Modal
         className="custom-modal"
         overlayClassName="custom-overlay"
