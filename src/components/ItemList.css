@@ -1,27 +1,4 @@
-.item-container {
-    width: 800px;
-    height: 100px;
-    background-color: rgb(236, 233, 28);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    border-radius: 8px;
-}
-
-.item-text {
-    color: black;
-    font-size: 25px;
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-}
-
-.modal {
+.custom-modal {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -54,4 +31,3 @@
     width: 85%;
     height: 25%;
   }
-

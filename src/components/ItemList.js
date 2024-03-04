@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Item from './Item'
 import Modal from 'react-modal';
+import './ItemList.css';
 import { v4 as uuidv4 } from 'uuid';
 function ItemList() {
 
@@ -22,7 +23,7 @@ function ItemList() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setItemList([...itemList, {id: uuidv4(), task: textInput, isEditing: false}]);
+    setItemList([...itemList, {id: uuidv4(), task: textInput}]);
     setTextInput('');
     closeModal();
   };
@@ -62,10 +63,13 @@ function ItemList() {
       }
       <button onClick={openModal}>Open Modal</button>
       <Modal
+        className="custom-modal"
+        overlayClassName="custom-overlay"
         isOpen={isOpen}
         onRequestClose={closeModal}
       >
         <input
+            className='input-text'
             type="text"
             value={textInput}
             onChange={handleChange}
