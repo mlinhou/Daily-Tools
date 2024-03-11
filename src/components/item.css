@@ -13,6 +13,8 @@
 .item-text {
     color: black;
     font-size: 25px;
+    overflow-y: auto;
+    margin: 10px;
 }
 
 .icons {
