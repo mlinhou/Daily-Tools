@@ -24,6 +24,7 @@ export default function Item({ handleDelete, note , handleEdit}) {
 
   const edit = () => {
     handleEdit(note, textInput);
+    setTextInput('');
     closeEditModal();
   }
 
@@ -46,7 +47,6 @@ export default function Item({ handleDelete, note , handleEdit}) {
           <input
               className='input-text'
               type="text"
-              value={textInput}
               onChange={handleChange}
               placeholder="Enter text..."
             />
