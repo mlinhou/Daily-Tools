@@ -1,3 +1,11 @@
+.whole-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .custom-modal {
     position: absolute;
     display: flex;
@@ -27,13 +35,20 @@
     align-items: center;
   }
 
+  .header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+
   .input-text{
     width: 85%;
     height: 25%;
   }
 
   .create-modal{
-    margin-left: auto;
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,6 +56,7 @@
     height: 35px;
     background-color: white;
     border-radius: 50%;
+    margin-left: 25px;
   }
 
 .create-btn{

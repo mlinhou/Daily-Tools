@@ -1,6 +1,6 @@
 .item-container {
     width: 800px;
-    height: 100px;
+    height: 130px;
     background-color: rgb(236, 233, 28);
     display: flex;
     align-items: center;
@@ -15,6 +15,13 @@
     font-size: 25px;
     overflow-y: auto;
     margin: 10px;
+}
+
+.right-side{
+  width: 120px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 .icons {

@@ -31,12 +31,17 @@ export default function Item({ handleDelete, note , handleEdit}) {
   return (
     <div className='item-container'>
         <div className='item-text'>{note.task}</div>
-        <div className='icons'>
-          <button onClick={openEditModal}>
-            <FontAwesomeIcon icon={faPen} />
-          </button>
-          <button onClick={ () => handleDelete(note.id)}><FontAwesomeIcon icon={faTrash} /></button>
+        
+        <div className='right-side'>
+          <div className='date'>{note.date}</div>
+          <div className='icons'>
+            <button onClick={openEditModal}>
+              <FontAwesomeIcon icon={faPen} />
+            </button>
+            <button onClick={ () => handleDelete(note.id)}><FontAwesomeIcon icon={faTrash} /></button>
+          </div>
         </div>
+
 
         <Modal
           className='modal'
