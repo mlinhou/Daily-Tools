@@ -5,11 +5,16 @@ import Home from './components/Home';
 import Calculator from './components/Calculator';
 import Stopwatch from './components/Stopwatch';
 import Timer from './components/Timer';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Sidebar/>
+        <Routes>
+          <Route path='/' />
+        </Routes>
         <Routes>
           <Route path="/Home/" element={<Home />} />
           <Route path="/Todo/" element={<ItemList />}/>
