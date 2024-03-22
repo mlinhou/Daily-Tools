@@ -39,7 +39,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   }
 
   .input-text{
@@ -52,15 +54,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
     background-color: white;
     border-radius: 50%;
     margin-left: 25px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.8s ease; /* Smooth transition for background color change */
   }
 
 .create-btn{
     background-color: transparent; /* Set background color to transparent */
     border: 1px solid transparent; /* Set border color to transparent */
+    
+}
+
+.create-modal:hover{
+  background-color: rgb(132, 181, 255);
 }
   

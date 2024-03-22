@@ -6,6 +6,7 @@
 .timer {
     font-size: 100px;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
 .actions {
@@ -17,11 +18,26 @@
     width: 100px;
     height: 30px;
     font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
 
+}
+.restart:hover{
+    background-color: rgb(132, 181, 255);
 }
 
 .start-stop {
     width: 100px;
     height: 30px;
     font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+.start-stop:hover{
+    background-color: rgb(132, 181, 255);
 }
