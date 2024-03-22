@@ -44,10 +44,6 @@ function ItemList() {
     setItemList(itemList.filter(todo => todo.id !== id))
   }
 
-  const showList = () => {
-    console.log(itemList);
-  }
-
   //date feature
   useEffect(() => {
     const interval = setInterval(() => {
@@ -100,7 +96,6 @@ function ItemList() {
         <button onClick={handleSubmit}>Save Note</button> {/* Close button inside modal */}
         
       </Modal>
-      {/* <button onClick={showList}>Show list</button> */}
     </div>
 
   )

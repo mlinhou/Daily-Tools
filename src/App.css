@@ -1,6 +1,7 @@
 .App {
+  min-height: 100vh; /* Minimum height of the container, ensuring it takes at least the full viewport height */
+  max-height: 100%; /* Maximum height of the container relative to its parent */
   text-align: center;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
