@@ -3,6 +3,7 @@ import ItemList from './components/ItemList';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/Home';
 import Calculator from './components/Calculator';
+import Stopwatch from './components/Stopwatch';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/Home/" element={<Home />} />
           <Route path="/Todo/" element={<ItemList />}/>
           <Route path="/Calculator/" element={<Calculator />}/>
+          <Route path="/Stopwatch/" element={<Stopwatch />} />
         </Routes>
       </Router>
     </div>
