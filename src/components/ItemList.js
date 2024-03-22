@@ -29,7 +29,6 @@ function ItemList() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setItemList([...itemList, {id: uuidv4(), task: textInput, date: currentTime.toLocaleTimeString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' })}]);
-    console.log(currentTime.toLocaleTimeString());
     setTextInput('');
     closeModal();
   };
@@ -38,6 +37,7 @@ function ItemList() {
     const index = itemList.indexOf(note);
     itemList[index].task = editedText;
     setItemList(itemList);
+    localStorage.setItem('myData', JSON.stringify(itemList))
   }
 
   const handleDelete = (id) => {
@@ -53,17 +53,20 @@ function ItemList() {
     return () => clearInterval(interval); // Cleanup function
   }, []);
 
-  // useEffect(() => {
-  //   const savedData = JSON.parse(localStorage.getItem('myData'));
-  //   if(savedData){
-  //     setItemList(savedData);
-  //   }
-  // }, []);
+  //had to remove strictmode in app.js to have the localstorage save on restart
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem('myData'));
+    
+    if(savedData){
+      
+      setItemList(savedData);
+    }
+  }, []);
 
-  // // Save data to localStorage whenever it changes
-  // useEffect(() => {
-  //   localStorage.setItem('myData', JSON.stringify(itemList))
-  // }, [itemList]); // data is the dependency
+  // Save data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('myData', JSON.stringify(itemList))
+  }, [itemList]); // data is the dependency
 
   
   return (
