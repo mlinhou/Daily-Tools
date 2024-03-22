@@ -1,0 +1,58 @@
+
+
+.container {
+    font-size: 70px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.todo{
+    font-size: 20px;
+    margin: 30px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.8s ease; /* Smooth transition for background color change */
+    
+}
+
+.todo:hover{
+    background-color: rgb(132, 181, 255);
+}
+
+.calc{
+    font-size: 20px;
+    margin: 30px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.8s ease; /* Smooth transition for background color change */
+}
+
+.calc:hover{
+    background-color: rgb(132, 181, 255);
+}
+
+.time{
+    font-size: 20px;
+    margin: 30px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.8s ease; /* Smooth transition for background color change */
+}
+
+.time:hover{
+    background-color: rgb(132, 181, 255);
+}

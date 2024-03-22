@@ -35,10 +35,10 @@ export default function Item({ handleDelete, note , handleEdit}) {
         <div className='right-side'>
           <div className='date'>{note.date}</div>
           <div className='icons'>
-            <button onClick={openEditModal}>
+            <button className='edit' onClick={openEditModal}>
               <FontAwesomeIcon icon={faPen} />
             </button>
-            <button onClick={ () => handleDelete(note.id)}><FontAwesomeIcon icon={faTrash} /></button>
+            <button className='trash' onClick={ () => handleDelete(note.id)}><FontAwesomeIcon icon={faTrash} /></button>
           </div>
         </div>
 
@@ -55,7 +55,7 @@ export default function Item({ handleDelete, note , handleEdit}) {
               onChange={handleChange}
               placeholder="Enter text..."
             />
-        <button onClick={edit}>Edit Note</button> {/* Close button inside modal */}
+        <button className='save-edit' onClick={edit}>Edit Note</button> {/* Close button inside modal */}
         
         </Modal>
     </div>
