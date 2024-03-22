@@ -72,4 +72,12 @@
 .create-modal:hover{
   background-color: rgb(132, 181, 255);
 }
-  
+
+.save{
+  cursor: pointer;
+  transition: background-color 0.8s ease;
+}
+
+.save:hover{
+  background-color: rgb(132, 181, 255);
+}

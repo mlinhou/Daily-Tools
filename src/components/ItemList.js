@@ -93,7 +93,7 @@ function ItemList() {
             onChange={handleChange}
             placeholder="Enter text..."
           />
-        <button onClick={handleSubmit}>Save Note</button> {/* Close button inside modal */}
+        <button className='save' onClick={handleSubmit}>Save Note</button> {/* Close button inside modal */}
         
       </Modal>
     </div>
