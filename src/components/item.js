@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './item.css'
 import Modal from 'react-modal';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 export default function Item({ handleDelete, note , handleEdit}) {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -22,25 +24,33 @@ export default function Item({ handleDelete, note , handleEdit}) {
 
   const edit = () => {
     handleEdit(note, textInput);
+    setTextInput('');
     closeEditModal();
   }
 
   return (
     <div className='item-container'>
         <div className='item-text'>{note.task}</div>
-        <button onClick={openEditModal}>EDIT</button>
-        <button onClick={ () => handleDelete(note.id)}>Delete</button>
+        <div className='icons'>
+          <button onClick={openEditModal}>
+            <FontAwesomeIcon icon={faPen} />
+          </button>
+          <button onClick={ () => handleDelete(note.id)}><FontAwesomeIcon icon={faTrash} /></button>
+        </div>
+
         <Modal
+          className='modal'
+          overlayClassName="custom-overlay"
           isOpen={isOpen}
           onRequestClose={closeEditModal}
         >
           <input
+              className='input-text'
               type="text"
-              value={textInput}
               onChange={handleChange}
               placeholder="Enter text..."
             />
-        <button onClick={edit}>Save Note</button> {/* Close button inside modal */}
+        <button onClick={edit}>Edit Note</button> {/* Close button inside modal */}
         
         </Modal>
     </div>

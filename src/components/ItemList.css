@@ -1,30 +1,4 @@
-.item-container {
-    width: 800px;
-    height: 100px;
-    background-color: rgb(236, 233, 28);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    border-radius: 8px;
-    border: 2px solid rgb(60, 58, 75);;
-}
-
-.item-text {
-    color: black;
-    font-size: 25px;
-    overflow-y: auto;
-    margin: 10px;
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-}
-
-.modal {
+.custom-modal {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -58,3 +32,19 @@
     height: 25%;
   }
 
+  .create-modal{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+.create-btn{
+    background-color: transparent; /* Set background color to transparent */
+    border: 1px solid transparent; /* Set border color to transparent */
+}
+  
