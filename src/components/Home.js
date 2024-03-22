@@ -1,20 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Home.css"
 
 function Home() {
 
   return (
-    <div>
-    <h2>Home</h2>
-    <Link to="/Todo">
-      <button>Todo</button>
-    </Link>
-    <Link to="/Calculator">
-      <button>Calculator</button>
-    </Link>
-    <Link to="/Stopwatch">
-      <button>Stopwatch</button>
-    </Link>
+    <div className="container">
+    <h2>Select a Tool</h2>
+    <div className='link-btn'>
+      <Link to="/Todo">
+        <button className="todo">Todo</button>
+      </Link>
+      <Link to="/Calculator">
+        <button className="calc">Calculator</button>
+      </Link>
+      <Link to="/Timer">
+        <button className="time">Timer</button>
+      </Link>
+    </div>
+
   </div>
   );
 }
