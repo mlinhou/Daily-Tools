@@ -12,6 +12,7 @@ function ItemList() {
   const [itemList, setItemList] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [textInput, setTextInput] = useState('');
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   const openModal = () => {
     setIsOpen(true);
@@ -27,7 +28,8 @@ function ItemList() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setItemList([...itemList, {id: uuidv4(), task: textInput}]);
+    setItemList([...itemList, {id: uuidv4(), task: textInput, date: currentTime.toLocaleTimeString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' })}]);
+    console.log(currentTime.toLocaleTimeString());
     setTextInput('');
     closeModal();
   };
@@ -46,6 +48,15 @@ function ItemList() {
     console.log(itemList);
   }
 
+  //date feature
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup function
+  }, []);
+
   // useEffect(() => {
   //   const savedData = JSON.parse(localStorage.getItem('myData'));
   //   if(savedData){
@@ -60,14 +71,18 @@ function ItemList() {
 
   
   return (
-    <div>
+    <div className='whole-page'>
+      <div className='header'>
+        <h1>Todo List</h1>
+        <div className='create-modal'>
+          <button className='create-btn' onClick={openModal}><FontAwesomeIcon icon={faPlus} /></button>
+        </div>
+      </div>
+      
       {itemList.map((item) => (
         <Item note={item} handleDelete={handleDelete} handleEdit={handleEdit}/>
       ))
       }
-      <div className='create-modal'>
-        <button className='create-btn' onClick={openModal}><FontAwesomeIcon icon={faPlus} /></button>
-      </div>
       
       <Modal
         className="custom-modal"
@@ -85,7 +100,7 @@ function ItemList() {
         <button onClick={handleSubmit}>Save Note</button> {/* Close button inside modal */}
         
       </Modal>
-      <button onClick={showList}>Show list</button>
+      {/* <button onClick={showList}>Show list</button> */}
     </div>
 
   )
