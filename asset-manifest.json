@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Daily-Tools/static/css/main.102e5e32.css",
-    "main.js": "/Daily-Tools/static/js/main.bba28efc.js",
+    "main.js": "/Daily-Tools/static/js/main.3f4fbfd6.js",
     "static/js/453.ac79db8d.chunk.js": "/Daily-Tools/static/js/453.ac79db8d.chunk.js",
     "index.html": "/Daily-Tools/index.html",
     "main.102e5e32.css.map": "/Daily-Tools/static/css/main.102e5e32.css.map",
-    "main.bba28efc.js.map": "/Daily-Tools/static/js/main.bba28efc.js.map",
+    "main.3f4fbfd6.js.map": "/Daily-Tools/static/js/main.3f4fbfd6.js.map",
     "453.ac79db8d.chunk.js.map": "/Daily-Tools/static/js/453.ac79db8d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.102e5e32.css",
-    "static/js/main.bba28efc.js"
+    "static/js/main.3f4fbfd6.js"
   ]
 }
