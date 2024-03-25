@@ -1,7 +1,7 @@
 {
   "name": "todo-app",
   "version": "0.1.0",
-  "homepage": "https://mlinhou.github.io/Daily-Tools/Home",
+  "homepage": "https://mlinhou.github.io/Daily-Tools/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
