@@ -27,7 +27,7 @@ function Sidebar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/Home">
+                    <Link to="/Daily-Tools">
                         <button className="home">Home</button>
                     </Link>
                 </li>
