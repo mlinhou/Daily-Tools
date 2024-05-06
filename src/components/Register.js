@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react'
-import { auth } from './firebase';
+import { auth, db } from './firebase';
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from 'react-toastify';
 
 function Register() {
     const [email, setEmail] = useState("");
@@ -14,9 +16,22 @@ function Register() {
             await createUserWithEmailAndPassword(auth, email, password);
             const user = auth.currentUser;
             console.log(user)
+            if(user){
+                await setDoc(doc(db,"Users", user.uid), {
+                    email: user.email,
+                    firstName: fname,
+                    lastName: lname,
+                });
+            }
             console.log("User registered successfully")
+            toast.success("User Registered Successfully!", {
+                position: "top-center",
+            });
         } catch (error) {
             console.log(error.message)
+            toast.error(error.message, {
+                position: "bottom-center"
+            })
         }
     }
 
@@ -73,7 +88,7 @@ function Register() {
         </button>
       </div>
       <p className="forgot-password text-right">
-        Already registered <a href="/login">Login</a>
+        Already registered <a href="/Login">Login</a>
       </p>
     </form>
   )
