@@ -8,6 +8,9 @@ function Home() {
     <div className="container">
     <h2>Select a Tool</h2>
     <div className='link-btn'>
+      <Link to="/Register">
+        <button className="todo">Register</button>
+      </Link>
       <Link to="/Todo">
         <button className="todo">Todo</button>
       </Link>
