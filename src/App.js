@@ -6,6 +6,9 @@ import Calculator from './components/Calculator';
 import Stopwatch from './components/Stopwatch';
 import Timer from './components/Timer';
 import Sidebar from './components/Sidebar';
+import Register from './components/Register';
+import { ToastContainer } from 'react-toastify';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -20,8 +23,11 @@ function App() {
           <Route path="/Todo/" element={<ItemList />}/>
           <Route path="/Calculator/" element={<Calculator />}/>
           <Route path="/Timer/" element={<Timer />} />
+          <Route path="/Register/" element={<Register/>} />
+          <Route path="/Login/" element={<Login/>} />
         </Routes>
       </Router>
+      <ToastContainer/>
     </div>
   );
 }

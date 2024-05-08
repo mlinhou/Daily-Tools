@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Item from './Item'
+import Item from './item'
 import Modal from 'react-modal';
 import './ItemList.css';
 import { v4 as uuidv4 } from 'uuid';

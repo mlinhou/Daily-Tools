@@ -6,8 +6,15 @@ function Home() {
 
   return (
     <div className="container">
+      <div className='top-right'>
+        <Link to="/Register">
+          <button className="todo">Register/Login</button>
+        </Link>
+      </div>
+
     <h2>Select a Tool</h2>
     <div className='link-btn'>
+      
       <Link to="/Todo">
         <button className="todo">Todo</button>
       </Link>
