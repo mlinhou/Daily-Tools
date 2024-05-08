@@ -1,8 +1,7 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from 'firebase/auth';
 import React, { useState } from 'react'
 import { auth, db } from './firebase';
 import { setDoc, doc } from "firebase/firestore";
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -12,6 +11,8 @@ function Register() {
     const [lname, setLname] = useState("");
 
     const navigate = useNavigate();
+    
+    const provider = new GoogleAuthProvider();
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -33,6 +34,26 @@ function Register() {
             console.log(error.message)
             
         }
+    }
+
+    const handleGoogleLogin = () => {
+      signInWithRedirect(auth, provider)
+        .then((result) => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          // The signed-in user info.
+          const user = result.user;
+          // IdP data available using getAdditionalUserInfo(result)
+        }).catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+        })
     }
 
   return (
@@ -86,6 +107,7 @@ function Register() {
         <button type="submit" className="btn btn-primary">
           Sign Up
         </button>
+        <button className="btn btn-primary" onClick={handleGoogleLogin}>Log in with Google</button>
       </div>
       <p className="forgot-password text-right">
         Already registered? <a href="/Login">Login</a>
