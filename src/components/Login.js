@@ -2,11 +2,14 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "./firebase";
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
   
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -17,6 +20,8 @@ function Login() {
         toast.success("User logged in Successfully", {
           position: "top-center",
         });
+        const path = '/Daily-Tools';
+        navigate(path);
       } catch (error) {
         console.log(error.message);
   
